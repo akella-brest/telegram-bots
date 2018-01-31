@@ -17,13 +17,13 @@ bot.onText(/Напомни (.+) в (.+)/, function (msg, match) {
 
     notes.push( { 'uid': userId, 'time': time, 'text': text } );
 
-    bot.sendMessage(userId, 'Отлично! Я обязательно постараюсь напомнить :)');
+    bot.sendMessage(userId, 'Отлично! Я обязательно постараюсь напомнить ;)');
 });
 
 setInterval (function() {
     for(var i = 0; i < notes.length; i++) {
-        var curDate = new Date().getHours() + ':' + new Date().getMinutes();
-        if(notes[i]['time'] == curDate + 3){
+        var curDate = (new Date().getHours() + 3) + ':' + new Date().getMinutes();
+        if(notes[i]['time'] == curDate){
             bot.sendMessage(notes[i]['uid'], 'Напоминаю, что вы должны: ' + notes[i]['text'] + ' сейчас.');
             notes.splice(i, 1);
         }
