@@ -7,7 +7,7 @@ var bot = new TelegramBot(token, {polling: true});
 var notes = [];
 
 bot.onText(/\/start/, function (msg, match) {
-    bot.sendMessage(msg.from.id, `${msg.from.first_name}, привет, я бот-напоминальщик! Вводи в формате "/Напомни что-то в 23:55" и я тебе напомню`);
+    bot.sendMessage(msg.from.id, `${msg.from.first_name}, привет, я бот-напоминальщик! Вводи в формате "Напомни что-то в 23:55" и я тебе напомню`);
 });
 
 bot.onText(/Напомни (.+) в (.+)/, function (msg, match) {
