@@ -35,7 +35,7 @@ setInterval (function() {
         var curDateDot = hours + '.' + new Date().getMinutes();
         var curDate = hours + ':' + new Date().getMinutes();
 
-        if(notes[i]['time'] == curDate || notes[i]['time'] == curDateDot){
+        if(notes[i]['time'] == curDate || notes[i]['time'] == curDateDot) {
             bot.sendMessage(notes[i]['uid'], 'Напоминаю, что вы должны: ' + notes[i]['text'] + ' сейчас.');
             notes.splice(i, 1);
         }
