@@ -10,8 +10,6 @@ bot.onText(/\/start/, function (msg, match) {
     bot.sendMessage(msg.from.id, `${msg.from.first_name}, привет, я бот-напоминальщик! Вводи в формате "Напомни что-то в 23:55" и я тебе напомню`);
 });
 
-var reg = new RegExp('Напомни', 'i');
-
 bot.onText(/Напомни (.+) в (.+)/i, function (msg, match) {
     var userId = msg.from.id;
     var text = match[1];
