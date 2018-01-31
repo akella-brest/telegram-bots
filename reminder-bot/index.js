@@ -12,7 +12,7 @@ bot.onText(/\/start/, function (msg, match) {
 
 var reg = new RegExp('Напомни', 'i');
 
-bot.onText(reg, function (msg, match) {
+bot.onText(/Напомни (.+) в (.+)/i, function (msg, match) {
     var userId = msg.from.id;
     var text = match[1];
     var time = match[2];
