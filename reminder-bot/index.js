@@ -22,18 +22,14 @@ bot.onText(/Напомни (.+) в (.+)/i, function (msg, match) {
 
 setInterval (function() {
     for(var i = 0; i < notes.length; i++) {
-        var hours = new Date().getUTCHours() + 3;
+        var hours = (new Date().getUTCHours() + 3) < 10 ? '0' + (new Date().getUTCHours() + 3) : (new Date().getUTCHours() + 3);
+        var minutes = new Date().getMinutes() < 10 ? '0' + new Date().getMinutes() : new Date().getMinutes();
 
-        if (hours >= 24) {
-            hours -= 24;
-        }
+        hours = hours >= 24 ? hours - 24 : hours;
 
-        if (hours < 10) {
-            hours = '0' + hours;
-        }
-
-        var curDateDot = hours + '.' + new Date().getMinutes();
-        var curDate = hours + ':' + new Date().getMinutes();
+        var curDateDot = hours + '.' + minutes;
+        var curDate = hours + ':' + minutes;
+        console.log(curDateDot, curDate);
 
         if(notes[i]['time'] == curDate || notes[i]['time'] == curDateDot) {
             bot.sendMessage(notes[i]['uid'], 'Напоминаю, что вы должны: ' + notes[i]['text'] + ' сейчас.');
